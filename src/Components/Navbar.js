@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-function Navbar({user}) {
+function Navbar({user, setUser}) {
 
     return (
 
@@ -20,9 +20,9 @@ function Navbar({user}) {
                 user ? (
                     <ul>
                         <li>
-                            <img src=""/>
+                            <img src="" alt='' />
                             <li>John Doe</li>
-                            <li><button>Logout</button></li>
+                            <li><button onClick={() => setUser(false)}>Logout</button></li>
                         </li>
                     </ul>
                 ) : (

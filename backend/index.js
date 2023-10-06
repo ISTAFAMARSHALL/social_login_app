@@ -1,7 +1,10 @@
 const cookieSession = require("cookie-session");
 const express = require("express");
+const cors = require("cors")
+const passportSetup = require("./passport")
 const passport = require("passport");
-const app = express()
+const authRoute = require("./routes/auth")
+const app = express();
 
 app.use(
     cookieSession({name:"session", keys:["openreplay"], maxAge: 24 * 60 * 60 * 100,})

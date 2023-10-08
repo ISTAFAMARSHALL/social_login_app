@@ -11,7 +11,6 @@ app.use(
 );
 
 app.use(passport.initialize());
-
 app.use(passport.session());
 
 app.use(cors({
@@ -23,6 +22,6 @@ app.use(cors({
 
 app.use("/auth", authRoute);
 
-app.listen("5000", ()=>{
+app.listen("3001", ()=>{
     console.log("server is running!")
 })

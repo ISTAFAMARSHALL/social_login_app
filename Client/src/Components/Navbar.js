@@ -25,14 +25,13 @@ function Navbar({user, setUser}) {
                             <li><button onClick={() => setUser(false)}>Logout</button></li>
                         </li>
                     </ul>
-                ) : (
-
-                <NavLink className="button"
+                ) 
+                : 
+                ( <NavLink className="button"
                     exact
-                    to="/login"
-                >
-                <button>Login</button>
-                </NavLink>
+                    to="/login">
+                        <button>Login</button>
+                    </NavLink>
                 )
             }
         </span>

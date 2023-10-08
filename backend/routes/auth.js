@@ -1,16 +1,17 @@
 const router = require("express").Router();
 const passport = require("passport");
+
 const CLIENT_URL = "http://localhost:3000/"
 
 router.get("/login/success", (req,res) => {
-      if(req.user) {
+     if(req.user) {
     res.status(200).json({
         success:true,
         message: "successful",
         user: req.user,
         //cookies: req.cookies
     });
-  }
+ }
 });
 
 router.get("/login/failed", (req,res) => {
@@ -36,6 +37,7 @@ router.get(
 );
 
 router.get("/github", passport.authenticate("github", { scope: ["profile"] }));
+
 router.get(
   "/github/callback",
   passport.authenticate("github", {
@@ -43,5 +45,28 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
+router.get("/facebook", passport.authenticate("facebook", { scope: ["profile"] }));
+
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+
+// find all images without alternate text
+// and give them a red border
+// const images = document.querySelectorAll("img:not([alt])");
+// images.forEach((image) => {
+//   image.style.outline = "5px solid red";
+// });
+
+// allow user to login in using facebook
+// const facebookLogin = document.querySelector(".facebook-login");
+// facebookLogin.addEventListener("click", () => {
+//   window.location.href = "/auth/facebook";
+// });
 
 module.exports = router

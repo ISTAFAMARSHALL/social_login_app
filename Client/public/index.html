@@ -9,6 +9,24 @@
       name="description"
       content="Web site created using create-react-app"
     />
+
+      <!-- Facebook Login -->
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <!-- Google Login -->
+  <script async defer src="https://apis.google.com/js/api.js"></script>
+
+  <!-- GitHub Login -->
+  <script async defer src="https://cdn.rawgit.com/eligrey/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+  <script async defer src="https://github.com/login/oauth/authorize.js"></script>
+
+  <!-- LinkedIn Login -->
+  <script async defer src="https://platform.linkedin.com/in.js">
+    api_key: YOUR_API_KEY
+    onLoad: onLinkedInLoad
+    authorize: true
+  </script>
+  
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a

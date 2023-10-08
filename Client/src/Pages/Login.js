@@ -58,12 +58,21 @@ function Login() {
     };
 
     const handleGitHubLogin = () => {
-        console.log('GitHub Login')
-    }
+        // Redirect the user to GitHub OAuth page
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=YOUR_GITHUB_CLIENT_ID&scope=user`;
+    };
+      
 
     const handleLinkedInLogin = () => {
-        console.log('LinkedIn Login')
-    }
+        // Authenticate using the LinkedIn SDK
+        IN.User.authorize(function () {
+          // User is authenticated, you can fetch user details using the LinkedIn API
+          IN.API.Profile('me').result(function (user) {
+            console.log('LinkedIn user:', user.values[0]);
+            // Handle user data and authentication here
+          });
+        });
+    };
 
     return (
         <div>

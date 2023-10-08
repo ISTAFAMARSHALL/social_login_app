@@ -43,8 +43,19 @@ function Login() {
     }
 
     const handleGoogleLogin = () => {
-        console.log('Google Login')
-    }
+        gapi.load('auth2', function () {
+          gapi.auth2.init({
+            client_id: '403940930490-9p5upakgv7g8brgiignanr4frs6r3rsv.apps.googleusercontent.com',
+          }).then(function (auth2) {
+            auth2.signIn().then(function (googleUser) {
+              // User is authenticated, you can access user details from googleUser
+              const profile = googleUser.getBasicProfile();
+              console.log('Google user:', profile);
+              // Handle user data and authentication here
+            });
+          });
+        });
+    };
 
     const handleGitHubLogin = () => {
         console.log('GitHub Login')

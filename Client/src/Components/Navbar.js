@@ -18,13 +18,13 @@ function Navbar({user, setUser}) {
         <span>
             {
                 user ? (
-                    <ul>
-                        <li>
+                    <span>
+                        <ul>
                             <img src="" alt='' />
                             <li>John Doe</li>
                             <li><button onClick={() => setUser(false)}>Logout</button></li>
-                        </li>
-                    </ul>
+                        </ul>
+                    </span>
                 ) 
                 : 
                 ( <NavLink className="button"

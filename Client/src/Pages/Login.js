@@ -2,6 +2,7 @@ import Google from "../Images/google.png";
 import Github from "../Images/github.png";
 import { useEffect, useState } from "react";
 
+
 function Login() {
 
   const handleFacebookLogin = () => {
@@ -51,10 +52,7 @@ function Login() {
 
     const handleGoogleLogin = async () => {
         
-          google.accounts.id.initialize({
-            client_id: "403940930490-9p5upakgv7g8brgiignanr4frs6r3rsv.apps.googleusercontent.com",
-            callback: handleResponse
-          })
+
     
         //   const handleResponse = (response) => {
         //     if (response.credential) {
@@ -125,9 +123,6 @@ function Login() {
         });
     };
     
-    const t = FB.login(function(response){
-      // handle the response 
-    });
     
     return (
         <div>
@@ -137,16 +132,13 @@ function Login() {
             <div id='wrapper'>
 
             <div onClick={handleFacebookLogin} > 
-            {/* <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                </fb:login-button> */}
                 <img src={""} alt='' /> 
-                {t}
                 Facebook 
             </div>
             <br></br>
             <div onClick={handleGoogleLogin} >
             <div id="signInDiv" ></div>
-                <img img src={""} alt='' /> 
+                <img img src={""} alt='' />      
                 Google 
             </div>
             <br></br>

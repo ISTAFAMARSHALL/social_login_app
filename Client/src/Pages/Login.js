@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import GitHubButton from 'react-github-btn'
+import LinkedIn from "../Components/LinkedIn";
 
 
 function Login() {
@@ -8,7 +10,7 @@ function Login() {
 
     google.accounts.id.initialize({
       client_id: "403940930490-9p5upakgv7g8brgiignanr4frs6r3rsv.apps.googleusercontent.com",
-      callback: handleCredentialResponse
+      callback: handleResponse
     });
 
     google.accounts.id.renderButton(
@@ -53,6 +55,7 @@ function Login() {
   }
     
   return (
+
     <div>
       <h1>Choose your login method below.</h1>
         
@@ -65,12 +68,17 @@ function Login() {
         <br></br>
         
         <div onClick={handleGitHubLogin} > 
-            Github 
+          
+          {/* Place this tag where you want the button to render */}
+                 
+          <GitHubButton href="https://github.com/buttons" data-color-scheme="no-preference: light_high_contrast; light: light; dark: light;" data-size="large" aria-label="Follow @buttons on GitHub">Sign in with GitHub</GitHubButton>
+
         </div>
         
         <br></br>
         
         <div onClick={handleLinkedInLogin} > 
+          <LinkedIn></LinkedIn>
             LinkedIn 
         </div>
         

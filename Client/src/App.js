@@ -8,7 +8,7 @@ import UserPage from './Pages/UserPage';
 
 function App() {
 
-  const [login, setLogin] = useState({})
+  const [login, setLogin] = useState(false)
 
   return (
     <div className="App">
@@ -21,7 +21,7 @@ function App() {
         login ? (
           
           <Route path='/' >
-            <UserPage />   
+            <UserPage setLogin={setLogin} />   
           </Route>
           
         ) 

@@ -10,20 +10,17 @@ function Navbar({login , setLogin}) {
 
         <div id='navbar'>
             
-            <NavLink className="button"
-                exact 
-                to="/"
-                >
-                <button className="button">Social Login App</button>
-            </NavLink>
+            Social Login App
+
+            <span></span>
         
             {
                 login ? 
                 
                 (
                     <>
-                        <img src="" alt='' />
-                        <>John Doe</>
+                        {/* <img src={currentUser.picture} alt="currentUser.name" /> */}
+                        <>{currentUser.name}</>
                         <><button onClick={() => setLogin(null)}>Logout</button></>
                     </>
                 ) 

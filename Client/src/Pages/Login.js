@@ -32,8 +32,10 @@ function Login({login , setLogin}) {
         // User is authenticated, you can access user details from response.credential
         const idToken = response.credential;
         console.log('Google user ID token:', idToken);
-        handleCredentialResponse(idToken);
-        
+        // handleCredentialResponse(idToken);
+        let token = jwtDecode(idToken);
+        setCurrentUser(token);
+        setLogin(true);
         // Handle user data and authentication here
     } else {
         // User canceled or failed to authenticate
@@ -56,16 +58,6 @@ function Login({login , setLogin}) {
         });
       });
   };
-    
-  function handleCredentialResponse(response) {
-
-    let token = jwtDecode(response);
-    
-    setCurrentUser(token);
-    setLogin(true);
-    console.log("Decoded JWT ID token: ", token)
-
-  }
     
   return (
 

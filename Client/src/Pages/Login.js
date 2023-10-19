@@ -2,9 +2,13 @@ import { useEffect } from "react";
 import GitHubButton from 'react-github-btn'
 import LinkedIn from "../Components/LinkedIn";
 import jwtDecode from "jwt-decode";
+import { UserContext } from "../Context/User";
+import { useContext } from "react";
 
 
-function Login({user , setUser}) {
+function Login({login , setLogin}) {
+
+  const {currentUser, setCurrentUser} = useContext(UserContext);
 
   useEffect(() => {
     /* global google */
@@ -21,7 +25,7 @@ function Login({user , setUser}) {
     
     google.accounts.id.prompt(); // also display the One Tap dialog
 
-  }, []);
+  }, [login]);
 
   const handleResponse = (response) => {
     if (response.credential) {
@@ -29,7 +33,7 @@ function Login({user , setUser}) {
         const idToken = response.credential;
         console.log('Google user ID token:', idToken);
         handleCredentialResponse(idToken);
-        setUser(true);
+        
         // Handle user data and authentication here
     } else {
         // User canceled or failed to authenticate
@@ -56,8 +60,11 @@ function Login({user , setUser}) {
   function handleCredentialResponse(response) {
 
     let token = jwtDecode(response);
+    
+    setCurrentUser(token);
+    setLogin(true);
     console.log("Decoded JWT ID token: ", token)
-  
+
   }
     
   return (

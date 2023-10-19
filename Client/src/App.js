@@ -3,29 +3,32 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import { useState } from 'react';
 import Login from './Pages/Login';
+import UserPage from './Pages/UserPage';
 
 
 function App() {
 
-  const [user, setUser] = useState(false)
+  const [login, setLogin] = useState({})
 
   return (
     <div className="App">
 
-      <Navbar user={user} setUser={setUser} />
+      <Navbar login={login} setLogin={setLogin} />
 
       <Switch>
 
       {
-        user ? (
+        login ? (
           
-          <Route path='/' />      
+          <Route path='/' >
+            <UserPage />   
+          </Route>
           
         ) 
         : 
         (
           <Route path='/login'>
-          <Login user={user} setUser={setUser} />
+          <Login login={login} setLogin={setLogin} />
           </Route>
         )
       }

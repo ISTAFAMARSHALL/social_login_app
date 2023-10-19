@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { UserContext } from "../Context/User";
+import { useContext } from "react";
 
-function Navbar({user, setUser}) {
+function Navbar({login , setLogin}) {
+
+    const {currentUser, setCurrentUser} = useContext(UserContext);
 
     return (
 
@@ -14,13 +18,13 @@ function Navbar({user, setUser}) {
             </NavLink>
         
             {
-                user ? 
+                login ? 
                 
                 (
                     <>
                         <img src="" alt='' />
                         <>John Doe</>
-                        <><button onClick={() => setUser(false)}>Logout</button></>
+                        <><button onClick={() => setLogin(null)}>Logout</button></>
                     </>
                 ) 
                 : 

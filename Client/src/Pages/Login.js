@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import GitHubButton from 'react-github-btn'
 import LinkedIn from "../Components/LinkedIn";
+import jwtDecode from "jwt-decode";
 
 
-function Login() {
+function Login({user , setUser}) {
 
   useEffect(() => {
     /* global google */
@@ -27,6 +28,8 @@ function Login() {
         // User is authenticated, you can access user details from response.credential
         const idToken = response.credential;
         console.log('Google user ID token:', idToken);
+        handleCredentialResponse(idToken);
+        setUser(true);
         // Handle user data and authentication here
     } else {
         // User canceled or failed to authenticate
@@ -51,7 +54,10 @@ function Login() {
   };
     
   function handleCredentialResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
+
+    let token = jwtDecode(response);
+    console.log("Decoded JWT ID token: ", token)
+  
   }
     
   return (

@@ -45,7 +45,7 @@ function Login({login , setLogin}) {
 
   const handleGitHubLogin = () => {
       // Redirect the user to GitHub OAuth page
-      window.location.href = `https://github.com/login/oauth/authorize?client_id=YOUR_GITHUB_CLIENT_ID&scope=user`;
+      window.location.href = `https://github.com/login/oauth/authorize?client_id=Iv1.6185e0c26f25211b&scope=user`;
   };
 
   const handleLinkedInLogin = () => {

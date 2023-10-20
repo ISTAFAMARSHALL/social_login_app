@@ -16,7 +16,7 @@ function UserPage({setLogin}) {
   return (
 
     <div>
-        <h1></h1>
+        <h1>You are logged in using </h1>
         <img src={currentUser.picture} alt="user.name"></img>
         <h2>{currentUser.name}</h2>
         <p>{currentUser.email}</p>

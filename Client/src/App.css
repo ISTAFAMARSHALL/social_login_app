@@ -24,6 +24,13 @@
   color: white;
 }
 
+#buttonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
 .App-link {
   color: #61dafb;
 }

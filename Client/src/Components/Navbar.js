@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 function Navbar({login , setLogin}) {
 
-    const {currentUser} = useContext(UserContext);
+    const {currentUser , setCurrentUser} = useContext(UserContext);
 
     return (
 
@@ -21,14 +21,14 @@ function Navbar({login , setLogin}) {
                     <>
                         {/* <img src={currentUser.picture} alt="currentUser.name" /> */}
                         <>{currentUser.name}</>
-                        <><button onClick={() => setLogin(null)}>Logout</button></>
+                        <><button onClick={() => setLogin(false)}>Logout</button></>
                     </>
                 ) 
                 : 
                 ( 
                     <NavLink className="button"
                         exact
-                        to="/login">
+                        to="/">
                         <button>Login</button>
                     </NavLink>
                 )

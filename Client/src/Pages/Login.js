@@ -227,7 +227,7 @@ function Login({login , setLogin}) {
 
         </div>
 
-        <GitHub></GitHub>
+        <GitHub login={login} setLogin={setLogin} ></GitHub>
         
         <br></br>
         

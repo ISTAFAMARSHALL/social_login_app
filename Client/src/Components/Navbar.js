@@ -5,6 +5,7 @@ import { useContext } from "react";
 function Navbar({login , setLogin}) {
 
     const {currentUser , setCurrentUser} = useContext(UserContext);
+    console.log(currentUser);
 
     return (
 
